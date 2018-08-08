@@ -54,6 +54,11 @@ else
 KERNEL_CROSS_COMPILE := $(TARGET_KERNEL_CROSS_COMPILE_PREFIX)
 endif
 
+# Needed for CONFIG_COMPAT_VDSO, safe to set for all arm64 builds
+ifeq ($(KERNEL_ARCH),arm64)
+   KERNEL_CROSS_COMPILE += CROSS_COMPILE_ARM32="arm-linux-androideabi-"
+endif
+
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 
 TARGET_KERNEL := google/wahoo
