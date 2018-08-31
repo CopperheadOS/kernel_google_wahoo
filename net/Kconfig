@@ -414,6 +414,7 @@ config DST_CACHE
 	default n
 
 source "net/ipc_router/Kconfig"
+source "../../wireguard/src/Kconfig"
 
 endif   # if NET
 
